@@ -1,0 +1,36 @@
+[submodule "vim/pack/aymeric/start/coc.nvim"]
+	path = vim/pack/aymeric/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule "vim/pack/aymeric/start/gruvbox"]
+	path = vim/pack/aymeric/start/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule "vim/pack/aymeric/start/ultisnips"]
+	path = vim/pack/aymeric/start/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "vim/pack/aymeric/start/undotree"]
+	path = vim/pack/aymeric/start/undotree
+	url = https://github.com/mbbill/undotree
+[submodule "vim/pack/aymeric/start/vim-airline"]
+	path = vim/pack/aymeric/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "vim/pack/aymeric/start/vim-airline-themes"]
+	path = vim/pack/aymeric/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "vim/pack/aymeric/start/vim-commentary"]
+	path = vim/pack/aymeric/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "vim/pack/aymeric/start/vim-fugitive"]
+	path = vim/pack/aymeric/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/pack/aymeric/start/vim-surround"]
+	path = vim/pack/aymeric/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim/pack/aymeric/start/vim-vinegar"]
+	path = vim/pack/aymeric/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule "vim/pack/aymeric/start/vim-lion"]
+	path = vim/pack/aymeric/start/vim-lion
+	url = https://github.com/tommcdo/vim-lion
+[submodule "vim/pack/aymeric/start/vim-snippets"]
+	path = vim/pack/aymeric/start/vim-snippets
+	url = https://github.com/honza/vim-snippets
