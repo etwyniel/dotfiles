@@ -1,31 +1,8 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-" The default vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2016 Sep 02
-"
-" This is loaded if no vimrc file was found.
-" Except when Vim is run with "-u NONE" or "-C".
-" Individual settings can be reverted with ":set option&".
-" Other commands can be reverted as mentioned below.
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
 " Bail out if something that ran earlier, e.g. a system wide vimrc, does not
 " want Vim to use these default values.
 if exists('skip_defaults_vim')
   finish
 endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
@@ -44,9 +21,6 @@ set display=truncate
 " Show a few lines of context around the cursor.  Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
-
-" Hide buffers instead of closing them
-" set hidden
 
 " Do incremental searching when it's possible to timeout.
 if has('reltime')
@@ -126,21 +100,6 @@ if has('langmap') && exists('+langremap')
   set nolangremap
 endif
 
-" VIMPLUG
-call plug#begin()
-        "Plug 'lervag/vimtex'
-        Plug 'rust-lang/rust.vim'
-        "Plug 'prabirshrestha/async.vim'
-        "Plug 'prabirshrestha/vim-lsp'
-        "Plug 'prabirshrestha/asyncomplete.vim'
-        "Plug 'prabirshrestha/asyncomplete-lsp.vim'
-        "Plug 'vim-syntastic/syntastic'
-call plug#end()
-
-" PATHOGEN
-let g:pathogen_disabled = ['syntax', 'syntastic', 'nerdtree', 'YouCompleteMe']
-execute pathogen#infect()
-
 set ts=8
 set sts=4
 set sw=4
@@ -165,8 +124,7 @@ let g:airline_section_x = ''
 "else
 "	echo "No dir script found."
 "endif
-"echo getcwd()
-" colorscheme papaya_original
+
 let g:gruvbox_constrast_dark = 'hard'
 let g:gruvbox_italic = '1'
 colorscheme gruvbox
@@ -186,40 +144,13 @@ set textwidth=80
 set incsearch
 let g:load_doxygen_syntax=1
 noremap ; :
-let g:ycm_server_python_interpreter='python2'
 set encoding=utf-8
 set pumblend=40
 set termguicolors
 autocmd BufNewFile,BufRead *.mako setf html
 autocmd BufNewFile,BufRead *.jsschema set syntax=json
-autocmd BufNewFile,BufRead *.m4 set matchpairs+=«:»
-autocmd BufNewFile,BufRead *.c.m4 set syntax=c ai
-autocmd BufNewFile,BufRead *.c set cc=81
 autocmd BufNewFile,BufRead *.go set ts=4 sts=4 sw=4 noet
 autocmd BufNewFile,BufRead *.rs nnoremap <F5> :CocCommand rust-analyzer.run<CR>
-
-" IAR option files for compiler/linker
-if getline(1) =~ '-!'
-  set ft=xcl
-  " c/cpp in any file containing c/cpp comment in line 1 or 2
-elseif ((getline(1) =~ '\/\*') || (getline(1)=~ '\/\/') || (getline(2) =~ '\/\*') || (getline(2)=~ '\/\/'))
-  set ft=c
-  " dosbatch in any file containing comment in line 1, 2 or 3
-elseif ((getline(1) =~ '^rem') || (getline(2)=~ '^rem') || (getline(3)=~ '^rem'))
-  set ft=dosbatch
-endif
-
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'beta', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
-nmap <F8> :TagbarToggle<CR>
-map <C-n> :bn<CR>
-map <C-p> :bp<CR>
 
 " Use Control+Arrow keys to move between buffers
 nnoremap <silent> <C-Right> <c-w>l
@@ -239,15 +170,6 @@ imap <A-Right> <Esc>ea
 " in insert mode
 imap <Home> <Esc>^i
 
-" Use escape to exit terminal mode
-tnoremap <Esc> <C-\><C-n>
-
-" Make Control+Arrow key to navigate between window work in terminal mode
-tnoremap <C-Left> <C-\><C-N><C-w>h
-tnoremap <C-Down> <C-\><C-N><C-w>j
-tnoremap <C-Up> <C-\><C-N><C-w>k
-tnoremap <C-Right> <C-\><C-N><C-w>l
-
 nnoremap <C-S-PageUp> :-tabm<CR>
 nnoremap <C-S-PageDown> :+tabm<CR>
 
@@ -255,13 +177,8 @@ nnoremap / /\v
 vnoremap / /\v
 
 nnoremap <C-U> :UndotreeToggle<CR>
-nnoremap <C-G> :Gstatus<CR>
 
-let g:ycm_server_python_interpreter="/usr/bin/python"
-let g:ycm_rust_src_path="/home/aymeric/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
-let g:rust_src_path="/home/aymeric/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
-let g:UltiSnipsExpandTrigger="<A-a>"
-let g:airline#extensions#coc#enabled = 1
+nnoremap <C-G> :Gstatus<CR>
 
 nnoremap <C-P> :CocList commands<CR>
 inoremap <C-P> <Esc>:CocList commands<CR>
@@ -269,7 +186,7 @@ nnoremap <C-L> :CocList files<CR>
 nnoremap <C-F> :CocFix<CR>
 nnoremap <C-D> :CocList diagnostics<CR>
 
-"nnoremap <F7> :setlocal spell! spell? spelllang=en_us<CR>
-"inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
+let g:rust_src_path="/home/aymeric/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+let g:UltiSnipsExpandTrigger="<A-a>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:airline#extensions#coc#enabled = 1
