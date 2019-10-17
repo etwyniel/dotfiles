@@ -139,8 +139,6 @@ set number
 set noswapfile
 set backspace=eol,indent,start
 set wildmenu
-set wrap
-set textwidth=80
 set incsearch
 let g:load_doxygen_syntax=1
 noremap ; :
