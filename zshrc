@@ -1,6 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
 CASE_SENSITIVE="false"
 
 plugins=(colored-man-pages archlinux catimg sudo git systemd wd docker kubectl)
