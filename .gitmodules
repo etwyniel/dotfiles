@@ -40,3 +40,6 @@
 [submodule "vim/pack/aymeric/start/vim-ragtag"]
 	path = vim/pack/aymeric/start/vim-ragtag
 	url = https://github.com/tpope/vim-ragtag
+[submodule "vim/pack/aymeric/start/vim-go"]
+	path = vim/pack/aymeric/start/vim-go
+	url = https://github.com/fatih/vim-go
