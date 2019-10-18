@@ -188,3 +188,7 @@ let g:rust_src_path="/home/aymeric/.rustup/toolchains/nightly-x86_64-unknown-lin
 let g:UltiSnipsExpandTrigger="<A-a>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:airline#extensions#coc#enabled = 1
+
+inoremap <TAB> <C-n>
+
+inoremap <S-TAB> <C-p>
