@@ -37,3 +37,6 @@
 [submodule "vim/pack/aymeric/start/delimitmate"]
 	path = vim/pack/aymeric/start/delimitmate
 	url = https://github.com/raimondi/delimitmate
+[submodule "vim/pack/aymeric/start/vim-ragtag"]
+	path = vim/pack/aymeric/start/vim-ragtag
+	url = https://github.com/tpope/vim-ragtag
