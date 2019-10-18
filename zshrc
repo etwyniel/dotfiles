@@ -18,8 +18,6 @@ alias gdb="gdb -q"
 alias ncmpcpp="ncmpcpp -c ~/.config/ncmpcpp/config"
 alias scp='rsync --archive --xattrs --acls --progress --rsh="ssh"'
 
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Movement with Alt+Arrow key
 bindkey "\e[1;3D" backward-word
 bindkey "\e[1;3C" forward-word
