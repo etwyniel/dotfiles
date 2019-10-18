@@ -34,3 +34,6 @@
 [submodule "vim/pack/aymeric/start/vim-snippets"]
 	path = vim/pack/aymeric/start/vim-snippets
 	url = https://github.com/honza/vim-snippets
+[submodule "vim/pack/aymeric/start/delimitmate"]
+	path = vim/pack/aymeric/start/delimitmate
+	url = https://github.com/raimondi/delimitmate
