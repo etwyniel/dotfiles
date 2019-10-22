@@ -112,7 +112,7 @@ nmap <Space> <leader>
 "set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
-let g:airline_section_x = ''
+"let g:airline_section_x = ''
 "let g:airline_section_y = ''
 "let g:airline_section_warning = ''
 "let g:airline_section_z = '%3p%% %#__accent_bold#%4l%#__restore__#%#__accent_bold#/%L%#__restore__# :%3v'
