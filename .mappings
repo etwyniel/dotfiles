@@ -1,0 +1,5 @@
+[general]
+vimrc = "~/.vimrc"
+vim = "~/.vim"
+zshrc = "~/.zshrc"
+zshenv = "~/.zshenv"
