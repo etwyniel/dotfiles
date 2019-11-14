@@ -202,3 +202,9 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+let g:go_info_mode = ''
+let g:go_def_mode = ''
+let g:go_highlight_extra_types = 1
+
+let g:gutentags_cache_dir = "~/.cache/gutentags/"

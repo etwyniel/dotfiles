@@ -46,3 +46,6 @@
 [submodule "vim/pack/aymeric/start/vimtex"]
 	path = vim/pack/aymeric/start/vimtex
 	url = https://github.com/lervag/vimtex
+[submodule "vim/pack/aymeric/start/vim-gutentags"]
+	path = vim/pack/aymeric/start/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags
