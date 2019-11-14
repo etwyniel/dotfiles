@@ -152,7 +152,7 @@ set termguicolors
 autocmd BufNewFile,BufRead *.mako setf html
 autocmd BufNewFile,BufRead *.jsschema set syntax=json
 autocmd BufNewFile,BufRead *.go set ts=4 sts=4 sw=4 noet
-autocmd BufNewFile,BufRead *.rs nnoremap <F5> :CocCommand rust-analyzer.run<CR>
+autocmd BufNewFile,BufRead *.rs nnoremap <F5> :CocCommand rust-analyzer.run<CR> | syn keyword rustKeyword async await
 autocmd BufNewFile,BufRead *.tmpl set filetype=gohtmltmpl
 
 " Use Control+Arrow keys to move between buffers
@@ -176,8 +176,9 @@ imap <Home> <Esc>^i
 nnoremap <C-S-PageUp> :-tabm<CR>
 nnoremap <C-S-PageDown> :+tabm<CR>
 
-nnoremap / /\v
-vnoremap / /\v
+" Move by display lines instead of file lines
+nnoremap <Up> gk
+nnoremap <Down> gj
 
 nnoremap <C-U> :UndotreeToggle<CR>
 
