@@ -106,7 +106,11 @@ set sw=4
 set et
 set nohls
 set smartcase
-nmap <Space> <leader>
+" nmap <Space> <localleader>
+let maplocalleader = ","
+let g:vimtex_view_method = "zathura"
+let g:vimtex_imaps_leader = "&"
+nmap <localleader><localleader> <localleader>lv
 
 " Powerline
 "set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
