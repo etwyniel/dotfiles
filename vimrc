@@ -194,6 +194,8 @@ nnoremap <C-F> :CocFix<CR>
 nnoremap <C-D> :CocList diagnostics<CR>
 
 let g:rust_src_path="/home/aymeric/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+let g:rustfmt_options="overwrite"
+let g:rustfmt_autosave = 1
 let g:UltiSnipsExpandTrigger="<A-a>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:airline#extensions#coc#enabled = 1
