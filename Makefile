@@ -23,8 +23,13 @@ ${HOME}/.config/nvim:
 
 .PHONY: zsh
 zsh: K := $(if $(shell which zsh),some string,$(error "No zsh in PATH"))
-zsh: ${HOME}/.zshenv ${HOME}/.zshrc
+zsh: oh-my-zsh ${HOME}/.zshenv ${HOME}/.zshrc
 ${HOME}/.zshenv:
 	ln -s $(realpath zshenv) $@
 ${HOME}/.zshrc:
 	ln -s $(realpath zshrc) $@
+
+.PHONY: oh-my-zsh
+oh-my-zsh: ${HOME}/.oh-my-zsh
+${HOME}/.oh-my-zsh:
+	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
