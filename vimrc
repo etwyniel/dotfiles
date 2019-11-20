@@ -152,8 +152,11 @@ set termguicolors
 autocmd BufNewFile,BufRead *.mako setf html
 autocmd BufNewFile,BufRead *.jsschema set syntax=json
 autocmd BufNewFile,BufRead *.go set ts=4 sts=4 sw=4 noet
-autocmd BufNewFile,BufRead *.rs nnoremap <F5> :CocCommand rust-analyzer.run<CR> | syn keyword rustKeyword async await
+autocmd BufNewFile,BufRead *.rs syn keyword rustKeyword async await
 autocmd BufNewFile,BufRead *.tmpl set filetype=gohtmltmpl
+
+" Autoread
+autocmd FocusGained * silent! checktime
 
 " Use Control+Arrow keys to move between buffers
 nnoremap <silent> <C-Right> <c-w>l
