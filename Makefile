@@ -17,9 +17,11 @@ ${HOME}/.vimrc:
 
 .PHONY: nvim
 nvim: K := $(if $(shell which nvim),some string,$(error "No nvim in PATH"))
-nvim: submodules vim ${HOME}/.config ${HOME}/.config/nvim
+nvim: submodules vim ${HOME}/.config ${HOME}/.config/nvim ${HOME}/.config/nvim/init.vim
 ${HOME}/.config/nvim:
 	ln -sT $(realpath vim) $@
+${HOME}/.config/nvim/init.vim:
+	ln -s $(realpath vimrc) $@
 
 .PHONY: zsh
 zsh: K := $(if $(shell which zsh),some string,$(error "No zsh in PATH"))
