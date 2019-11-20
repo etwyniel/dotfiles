@@ -1,18 +1,22 @@
 .PHONY:all
-all: vim nvim zsh
+all: submodules vim nvim zsh
+
+.PHONY: submodules
+submodules:
+	git submodule update --init --recursive
 
 ${HOME}/.config:
 	mkdir $@
 
 .PHONY: vim
-vim: ${HOME}/.vim ${HOME}/.vimrc
+vim: submodules ${HOME}/.vim ${HOME}/.vimrc
 ${HOME}/.vim:
 	ln -sT $(realpath vim) $@
 ${HOME}/.vimrc:
 	ln -s $(realpath vimrc) $@
 
 .PHONY: nvim
-nvim: vim ${HOME}/.config ${HOME}/.config/nvim
+nvim: submodules vim ${HOME}/.config ${HOME}/.config/nvim
 ${HOME}/.config/nvim:
 	ln -sT $(realpath vim) $@
 
