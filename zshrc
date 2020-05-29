@@ -2,7 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 CASE_SENSITIVE="false"
 
-plugins=(colored-man-pages archlinux catimg sudo git systemd wd docker kubectl)
+plugins=(colored-man-pages archlinux catimg sudo git systemd wd docker kubectl fzf)
 
 source $ZSH/oh-my-zsh.sh
 
