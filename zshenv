@@ -8,3 +8,5 @@ export RUSTC_WRAPPER="sccache"
 export CXX="clang++"
 export CXXFLAGS="-Wall -Wextra -Werror -std=c++17 -g -pedantic"
 #export CPPFLAGS="-MMD -D_GLIBCXX_DEBUG"
+
+export $(dbus-launch)

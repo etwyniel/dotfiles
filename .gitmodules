@@ -52,3 +52,9 @@
 [submodule "vim/pack/aymeric/start/vim-toml"]
 	path = vim/pack/aymeric/start/vim-toml
 	url = https://github.com/cespare/vim-toml
+[submodule "vim/pack/aymeric/start/vim/pack/aymeric/start/arm-syntax-vim"]
+	path = vim/pack/aymeric/start/vim/pack/aymeric/start/arm-syntax-vim
+	url = https://github.com/ARM9/arm-syntax-vim
+[submodule "vim/pack/aymeric/start/arm-syntax-vim"]
+	path = vim/pack/aymeric/start/arm-syntax-vim
+	url = https://github.com/ARM9/arm-syntax-vim
