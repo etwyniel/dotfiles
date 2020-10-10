@@ -1,11 +1,26 @@
+global !p
+texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+texIgnoreMathZones = ['texMathText']
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+ignore = texIgnoreMathZoneIds[0]
+def math():
+	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+	try:
+		first = next(i for i in reversed(synstackids) if i in texIgnoreMathZoneIds or i in texMathZoneIds)
+		return first != ignore
+	except StopIteration:
+		return False
+endglobal
+
 snippet dm "Math" wA
 \[
 $1
-.\] $0
+\] $0
 endsnippet
 
 snippet mk "Math" wA
-$${1}$`!p
+$${1} $`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
     snip.rv = ' '
 else:
@@ -14,11 +29,11 @@ else:
 endsnippet
 
 snippet // "Fraction" iA
-\\frac{$1}{$2}$0
+\\cfrac{$1}{$2}$0
 endsnippet
 
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
-\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+\\cfrac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
 priority 1000
@@ -32,7 +47,7 @@ while True:
 	if stripped[i] == '(': depth -= 1
 	if depth == 0: break;
 	i -= 1
-snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+snip.rv = stripped[0:i] + "\\cfrac{" + stripped[i+1:-1] + "}"
 `{$1}$0
 endsnippet
 
@@ -42,7 +57,13 @@ snippet "([a-zA-Z])bar" "bar" riA
 endsnippet
 
 snippet sum "Sum" w
-\sum_{n=${1:1}}^{${2:\infty}} ${3}
+\sum_{${1:n=1}}^{${2:+\infty}} ${3}
+endsnippet
+
+snippet array "Array" w
+\begin{array}{lcl}
+    ${1} & = & ${2}\\\\
+\end{array}
 endsnippet
 
 snippet -> "to" iA
@@ -51,6 +72,10 @@ endsnippet
 
 snippet => "implies" iA
 \implies
+endsnippet
+
+snippet \le> "iff" iA
+\iff
 endsnippet
 
 snippet <= "leq" iA
@@ -67,4 +92,32 @@ endsnippet
 
 snippet AA "forall" iA
 \forall
+endsnippet
+
+snippet RR "real" iA
+\mathbb{R}
+endsnippet
+
+snippet CC "complex" iA
+\mathbb{C}
+endsnippet
+
+snippet NN "natural" iA
+\mathbb{N}
+endsnippet
+
+snippet ooo "infinity" iA
+\infty
+endsnippet
+
+priority 100
+context "math()"
+snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
+\\`!p snip.rv = match.group(1)`
+endsnippet
+
+priority 300
+context "math()"
+snippet dint "integral" wA
+\int_{${1:-\infty}}^{${2:+\infty}} ${3:${VISUAL}} $0
 endsnippet

@@ -197,7 +197,7 @@ let g:rust_src_path="/home/aymeric/.rustup/toolchains/nightly-x86_64-unknown-lin
 let g:rustfmt_options="overwrite"
 let g:rustfmt_autosave = 1
 let g:UltiSnipsExpandTrigger="<A-a>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<C-w>"
 let g:airline#extensions#coc#enabled = 1
 
 " Use tab for trigger completion with characters ahead and navigate.
