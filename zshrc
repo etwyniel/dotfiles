@@ -29,11 +29,12 @@ function ydl() {
 }
 
 function pacs() {
-    package=$(
+    packages=($(
         pacman -Ssq |
-        fzf --preview 'pacman --color=always -Ss ^{}$'
-    )
-    [[ -n "$package" ]] && sudo pacman -S "$package"
+        fzf -m --preview 'pacman --color=always -Ss ^{}$'
+    ))
+    echo $packages
+    [[ -n "$packages" ]] && sudo pacman -S $packages
 }
 
 # Movement with Alt+Arrow key
