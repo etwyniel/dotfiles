@@ -31,9 +31,8 @@ function ydl() {
 function pacs() {
     packages=($(
         pacman -Ssq |
-        fzf -m --preview 'pacman --color=always -Ss ^{}$'
+        fzf -m --preview 'pacman --color=always -Ss ^{}$; echo; pacman --color=always -Si {}'
     ))
-    echo $packages
     [[ -n "$packages" ]] && sudo pacman -S $packages
 }
 
