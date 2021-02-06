@@ -218,3 +218,6 @@ let g:go_def_mode = ''
 let g:go_highlight_extra_types = 1
 
 let g:gutentags_cache_dir = "~/.cache/gutentags/"
+
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
