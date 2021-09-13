@@ -193,6 +193,9 @@ nnoremap <C-L> :CocList files<CR>
 nnoremap <C-F> :CocFix<CR>
 nnoremap <C-D> :CocList diagnostics<CR>
 
+nnoremap <C-E> :NvimTreeOpen<CR>:NvimTreeFocus<CR>
+nnoremap <C-B> :NvimTreeClose<CR>
+
 let g:rust_src_path="/home/aymeric/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 let g:rustfmt_options="overwrite"
 let g:rustfmt_autosave = 1

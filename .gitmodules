@@ -58,3 +58,21 @@
 [submodule "vim/pack/aymeric/start/arm-syntax-vim"]
 	path = vim/pack/aymeric/start/arm-syntax-vim
 	url = https://github.com/ARM9/arm-syntax-vim
+[submodule "vim/pack/aymeric/start/nvim-tree.lua"]
+	path = vim/pack/aymeric/start/nvim-tree.lua
+	url = https://github.com/kyazdani42/nvim-tree.lua
+[submodule "vim/pack/aymeric/start/bufferline.nvim"]
+	path = vim/pack/aymeric/start/bufferline.nvim
+	url = https://github.com/akinsho/bufferline.nvim
+[submodule "vim/pack/aymeric/start/telescope.nvim"]
+	path = vim/pack/aymeric/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule "vim/pack/aymeric/start/plenary.nvim"]
+	path = vim/pack/aymeric/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "vim/pack/aymeric/start/nvim-cmp"]
+	path = vim/pack/aymeric/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp
+[submodule "vim/pack/aymeric/start/LuaSnip"]
+	path = vim/pack/aymeric/start/LuaSnip
+	url = https://github.com/L3MON4D3/LuaSnip
