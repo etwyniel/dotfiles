@@ -76,3 +76,6 @@
 [submodule "vim/pack/aymeric/start/LuaSnip"]
 	path = vim/pack/aymeric/start/LuaSnip
 	url = https://github.com/L3MON4D3/LuaSnip
+[submodule "vim/pack/aymeric/start/vim-eunuch"]
+	path = vim/pack/aymeric/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch

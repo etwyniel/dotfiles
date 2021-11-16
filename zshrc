@@ -2,7 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 CASE_SENSITIVE="false"
 
-plugins=(colored-man-pages archlinux catimg sudo git systemd wd docker kubectl fzf)
+plugins=(colored-man-pages archlinux catimg sudo git systemd wd docker kubectl fzf cargo rustup rust pip battery)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -33,11 +33,42 @@ function pacs() {
         pacman -Ssq |
         fzf -m --preview 'pacman --color=always -Ss ^{}$; echo; pacman --color=always -Si {}'
     ))
-    [[ -n "$packages" ]] && sudo pacman -S $packages
+    if [[ -n "$packages" ]]; then
+        if [ -n "$WIDGET" ]; then
+            echo -n "sudo pacman -S $packages"
+        else
+            sudo pacman -S $packages
+        fi
+    fi
 }
 
 # Movement with Alt+Arrow key
 bindkey "\e[1;3D" backward-word
 bindkey "\e[1;3C" forward-word
+
+pacs-widget() {
+    cmd=$(pacs)
+    if [ -n "$cmd" ]; then
+        LBUFFER="$cmd"
+        zle reset-prompt
+        zle accept-line
+    fi
+}
+
+zle -N pacs-widget
+
+macro() {
+    if [ "$LBUFFER" = pacs ]; then
+        zle pacs-widget
+    elif [[ "$LBUFFER" =~ '\<pod$' ]]; then
+        pod=$(select_pod)
+        LBUFFER="${LBUFFER%pod}$pod"
+    else
+        LBUFFER+="!"
+    fi
+}
+
+zle -N macro
+bindkey '!' macro
 
 compinit
