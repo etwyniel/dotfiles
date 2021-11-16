@@ -17,6 +17,7 @@ alias k="kubectl --insecure-skip-tls-verify=true"
 alias gdb="gdb -q"
 alias ncmpcpp="ncmpcpp -c ~/.config/ncmpcpp/config"
 alias scp='rsync --archive --xattrs --acls --progress --rsh="ssh"'
+alias mv="mv --no-clobber"
 
 function ydl() {
     format=$(
@@ -40,6 +41,13 @@ function pacs() {
             sudo pacman -S $packages
         fi
     fi
+}
+
+function unzipc() {
+    filename="$(basename "$1")"
+    dirname="${filename%.*}"
+    mkdir "$dirname"
+    unzip "$1" -d "$dirname"
 }
 
 # Movement with Alt+Arrow key
@@ -72,3 +80,4 @@ zle -N macro
 bindkey '!' macro
 
 compinit
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
